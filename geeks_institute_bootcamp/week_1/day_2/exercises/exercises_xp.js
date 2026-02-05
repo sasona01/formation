@@ -2,7 +2,7 @@
 
 function displayNumbersDivisible() {
   let sum = 0;
-  let x = [];   // initialize the array
+  let x = [];   
   let j = 0;
 
   for (let i = 0; i <= 500; i++) {
@@ -20,7 +20,7 @@ displayNumbersDivisible();
 //5
 function displayNumbersDivisible(y) {
   let sum1 = 0;
-  let a = [];   // initialize the array
+  let a = [];   
   let e = 0;
 
   for (let z = 0; z <= 500; z++) {
@@ -34,7 +34,7 @@ function displayNumbersDivisible(y) {
   console.log("Outcome :"+a.join(" "));
   console.log("Sum :"+ sum1);
 }
-displayNumbersDivisible(45);*/
+displayNumbersDivisible(45);
 // ===== Exercise 2
 
 const stock = { 
@@ -132,46 +132,36 @@ function totalVacationCost() {
 
 totalVacationCost();
 
-// ===== Exercise 5// Récupérer le div
-// Récupérer le div
+// ===== Exercise 5
+
 const div = document.getElementById("container");
 console.log(div);
 
-// Récupérer les ul
+
 const ul1 = document.getElementsByTagName("ul")[0];
 const ul2 = document.getElementsByTagName("ul")[1];
 
-// 1. Changer Pete en Richard
 ul1.children[1].textContent = "Richard";
 
-// 2. Supprimer le 2e li du 2e ul (Sarah)
 ul2.children[1].remove();
 
-// 3. Changer le premier li de chaque ul
 ul1.children[0].textContent = "YourName";
 ul2.children[0].textContent = "YourName";
 
-// 4. Ajouter la classe student_list aux deux ul
 ul1.classList.add("student_list");
 ul2.classList.add("student_list");
 
-// 5. Ajouter university et attendance au premier ul
 ul1.classList.add("university", "attendance");
 
-// 6. Style du div
 div.style.backgroundColor = "lightblue";
 div.style.padding = "10px";
 
-// 7. Cacher Dan
 ul2.children[1].style.display = "none";
 
-// 8. Ajouter une bordure à Richard
 ul1.children[1].style.border = "1px solid black";
 
-// 9. Changer la taille de la police
 document.body.style.fontSize = "18px";
 
-// Bonus
 if (div.style.backgroundColor === "lightblue") {
   alert("Hello YourName and David");
 }

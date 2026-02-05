@@ -1,11 +1,11 @@
 // ===== Exercise 1
-/*
+
 function isBlank(str) {
   return str === "";
 }
 
-console.log(isBlank(""));     // true
-console.log(isBlank("abc"));  // false
+console.log(isBlank(""));     
+console.log(isBlank("abc"));  
 
 // ===== Exercise 2
 function abbrevName(name) {
@@ -13,7 +13,7 @@ function abbrevName(name) {
   return parts[0] + " " + parts[1][0] + ".";
 }
 
-console.log(abbrevName("Robin Singh")); // Robin S.
+console.log(abbrevName("Robin Singh")); 
 
 
 // ===== Exercise 3
@@ -49,9 +49,9 @@ function isOmnipresent(array, value) {
 }
 
 // Examples
-console.log(isOmnipresent([[1,1],[1,3],[5,1],[6,1]], 1)); // true
-console.log(isOmnipresent([[1,1],[1,3],[5,1],[6,1]], 6)); // false
-*/
+console.log(isOmnipresent([[1,1],[1,3],[5,1],[6,1]], 1)); 
+console.log(isOmnipresent([[1,1],[1,3],[5,1],[6,1]], 6)); 
+
 // ===== Exercise 5
 let table = document.body.firstElementChild;
 
