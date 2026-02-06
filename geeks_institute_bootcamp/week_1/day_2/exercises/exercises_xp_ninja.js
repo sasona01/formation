@@ -1,5 +1,5 @@
 // ===== Exercise 1
-/*
+
 let random = Math.floor(Math.random() * 100) + 1;
 
 for (let i = 0; i <= random; i++) {
@@ -75,7 +75,6 @@ function uniqueArray(arr) {
 }
 
 console.log(uniqueArray([1,2,3,3,3,3,4,5]));
-*/
 // ===== Exercise 6
 function createCalendar(year, month) {
   const table = document.createElement("table");
@@ -83,7 +82,7 @@ function createCalendar(year, month) {
 
   const days = ["MO", "TU", "WE", "TH", "FR", "SA", "SU"];
 
-  // 1. Créer l’en-tête
+ 
   const headerRow = document.createElement("tr");
   for (let day of days) {
     const th = document.createElement("th");
@@ -92,26 +91,22 @@ function createCalendar(year, month) {
   }
   table.appendChild(headerRow);
 
-  // 2. Date de départ
+  
   let date = new Date(year, month - 1, 1);
 
-  // 3. Jour de la semaine (lundi = 0)
   let startDay = (date.getDay() + 6) % 7;
 
   let row = document.createElement("tr");
 
-  // 4. Cases vides avant le 1er jour
   for (let i = 0; i < startDay; i++) {
     row.appendChild(document.createElement("td"));
   }
 
-  // 5. Remplir les jours du mois
   while (date.getMonth() === month - 1) {
     const td = document.createElement("td");
     td.textContent = date.getDate();
     row.appendChild(td);
-
-    // Nouvelle ligne après dimanche
+he
     if (row.children.length === 7) {
       table.appendChild(row);
       row = document.createElement("tr");
@@ -120,7 +115,6 @@ function createCalendar(year, month) {
     date.setDate(date.getDate() + 1);
   }
 
-  // 6. Ajouter la dernière ligne
   if (row.children.length > 0) {
     table.appendChild(row);
   }
@@ -128,5 +122,5 @@ function createCalendar(year, month) {
   document.body.appendChild(table);
 }
 
-// Exemple
+
 createCalendar(2012, 9);
