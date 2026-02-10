@@ -12,8 +12,9 @@ function myMove() {
       position++;
       box.style.left = position + "px";
     }
-  });
+  },1);
 }
+
 
 // ===== Exercise 2
 
