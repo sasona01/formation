@@ -1,167 +1,89 @@
-// ===== Exercise 1
+//Exercise 1 : Colors
 
-function displayNumbersDivisible() {
-  let sum = 0;
-  let x = [];   
-  let j = 0;
+const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
 
-  for (let i = 0; i <= 500; i++) {
-    if (i % 23 === 0) {
-      x[j] = i;
-      j++;
-      sum += i;
-    }
-  }
+colors.forEach((color, index) => {
+  console.log(`${index + 1}# choice is ${color}.`);
+});
 
-  console.log("Outcome :"+x.join(" "));
-  console.log("Sum :"+ sum);
-}
-displayNumbersDivisible();
-//5
-function displayNumbersDivisible(y) {
-  let sum1 = 0;
-  let a = [];   
-  let e = 0;
-
-  for (let z = 0; z <= 500; z++) {
-    if (z % y === 0) {
-      a[e] = z;
-      e++;
-      sum1 += z;
-    }
-  }
-
-  console.log("Outcome :"+a.join(" "));
-  console.log("Sum :"+ sum1);
-}
-displayNumbersDivisible(45);
-// ===== Exercise 2
-
-const stock = { 
-  banana: 6, 
-  apple: 0,
-  pear: 12,
-  orange: 32,
-  blueberry: 1
-};
-
-const prices = {    
-  banana: 4, 
-  apple: 2, 
-  pear: 1,
-  orange: 1.5,
-  blueberry: 10
-};
-
-const shoppingList = ["banana", "orange", "apple"];
-
-function myBill() {
-  let total = 0;
-
-  for (let item of shoppingList) {
-    if (item in stock && stock[item] > 0) {
-      total += prices[item];
-      stock[item]--; 
-    }
-  }
-
-  return total;
+if (colors[colors.length-1] === "Violet") {
+  console.log("Yeah");
+} else {
+  console.log("No...");
 }
 
-console.log(myBill());
+//Exercise 2 : Colors #2
+const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+const ordinal = ["th","st","nd","rd"];
 
-// ===== Exercise 3
+colors.forEach((color, index) => {
+  const number = index + 1;
+  const suffix = number <= 3 ? ordinal[number] : ordinal[0];
+  console.log(`${number}${suffix} choice is ${color}.`);
+});
 
-function changeEnough(itemPrice, amountOfChange) {
-  const values = [0.25, 0.10, 0.05, 0.01];
-  let total = 0;
+//Exercise 3 :
+/*
+1:
+["bread", "carrot", "potato", "chicken", "apple", "orange"]
 
-  for (let i = 0; i < amountOfChange.length; i++) {
-    total += amountOfChange[i] * values[i];
-  }
+2:
+["U", "S", "A"]
 
-  return total >= itemPrice;
-}
+3:
+[undefined, undefined]
+*/
 
-console.log(changeEnough(14.11, [2,100,0,0]));
-console.log(changeEnough(0.75, [0,0,20,5]));
+//Exercise 4 :
 
-// ===== Exercise 4
+const users = [
+  { firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
+  { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
+  { firstName: 'Jonathan', lastName: 'Baughn', role: 'Enterprise Instructor' },
+  { firstName: 'Michael', lastName: 'Herman', role: 'Lead Instructor' },
+  { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' },
+  { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
+  { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}
+];
 
-function hotelCost(nights) {
-  return nights * 140;
-}
+const welcomeStudents = users.map(user => `Hello ${user.firstName}`);
+console.log(welcomeStudents);
 
-function planeRideCost(destination) {
-  if (destination === "London") return 183;
-  if (destination === "Paris") return 220;
-  return 300;
-}
+const fullStackResidents = users.filter(
+  user => user.role === "Full Stack Resident"
+);
+console.log(fullStackResidents);
 
-function rentalCarCost(days) {
-  let cost = days * 40;
-  if (days > 10) {
-    cost *= 0.95;
-  }
-  return cost;
-}
+const lastNames = users
+  .filter(user => user.role === "Full Stack Resident")
+  .map(user => user.lastName);
 
-function totalVacationCost() {
-  let nights;
-  do {
-    nights = Number(prompt("How many nights?"));
-  } while (isNaN(nights) || nights <= 0);
+console.log(lastNames);
 
-  let destination;
-  do {
-    destination = prompt("Where are you going?");
-  } while (!destination);
+//Exercise 5 :
 
-  let days;
-  do {
-    days = Number(prompt("How many car rental days?"));
-  } while (isNaN(days) || days <= 0);
+const epic = ['a', 'long', 'time', 'ago', 'in a', 'galaxy', 'far far', 'away'];
 
-  const total =
-    hotelCost(nights) +
-    planeRideCost(destination) +
-    rentalCarCost(days);
+const sentence = epic.reduce((acc, word) => acc + " " + word);
 
-  alert(`Total vacation cost: $${total}`);
-}
+console.log(sentence);
 
-totalVacationCost();
+//Exercise 6 :
 
-// ===== Exercise 5
+const students = [
+  {name: "Ray", course: "Computer Science", isPassed: true}, 
+  {name: "Liam", course: "Computer Science", isPassed: false}, 
+  {name: "Jenner", course: "Information Technology", isPassed: true}, 
+  {name: "Marco", course: "Robotics", isPassed: true}, 
+  {name: "Kimberly", course: "Artificial Intelligence", isPassed: false}, 
+  {name: "Jamie", course: "Big Data", isPassed: false}
+];
 
-const div = document.getElementById("container");
-console.log(div);
+const passedStudents = students.filter(student => student.isPassed);
+console.log(passedStudents);
 
-
-const ul1 = document.getElementsByTagName("ul")[0];
-const ul2 = document.getElementsByTagName("ul")[1];
-
-ul1.children[1].textContent = "Richard";
-
-ul2.children[1].remove();
-
-ul1.children[0].textContent = "YourName";
-ul2.children[0].textContent = "YourName";
-
-ul1.classList.add("student_list");
-ul2.classList.add("student_list");
-
-ul1.classList.add("university", "attendance");
-
-div.style.backgroundColor = "lightblue";
-div.style.padding = "10px";
-
-ul2.children[1].style.display = "none";
-
-ul1.children[1].style.border = "1px solid black";
-
-document.body.style.fontSize = "18px";
-
-if (div.style.backgroundColor === "lightblue") {
-  alert("Hello YourName and David");
-}
+passedStudents.forEach(student => {
+  console.log(
+    `Good job ${student.name}, you passed the course in ${student.course}`
+  );
+});
