@@ -1,60 +1,41 @@
 // ===== Exercise 1
 
-function isBlank(str) {
-  return str === "";
-}
+[1, 2, 3].map(num => {
+  if (typeof num === 'number') return num * 2;
+  return;
+});
 
-console.log(isBlank(""));     
-console.log(isBlank("abc"));  
 
 // ===== Exercise 2
-function abbrevName(name) {
-  let parts = name.split(" ");
-  return parts[0] + " " + parts[1][0] + ".";
-}
 
-console.log(abbrevName("Robin Singh")); 
+[[0, 1], [2, 3]].reduce(
+  (acc, cur) => {
+    return acc.concat(cur);
+  },
+  [1, 2],
+);
+
 
 
 // ===== Exercise 3
-
-function swapCase(str) {
-  let result = "";
-
-  for (let i = 0; i < str.length; i++) {
-    let char = str[i];
-
-    if (char === char.toUpperCase()) {
-      result += char.toLowerCase();
-    } else {
-      result += char.toUpperCase();
-    }
-  }
-
-  return result;
-}
-
-console.log(swapCase("The Quick Brown Fox"));
-// tHE qUICK bROWN fOX
+//i représente la position de l’élément dans le tableau
 
 
 // ===== Exercise 4
-function isOmnipresent(array, value) {
-  for (let i = 0; i < array.length; i++) {
-    if (!array[i].includes(value)) {
-      return false;
-    }
-  }
-  return true;
-}
+const array = [[1],[2],[3],[[[4]]],[[[5]]]];
+const result = array.map(el => el.flat(2));
+console.log(result);
+//
+const greeting = [
+["Hello", "young", "grasshopper!"], 
+["you", "are"], 
+["learning", "fast!"]
+];
 
-// Examples
-console.log(isOmnipresent([[1,1],[1,3],[5,1],[6,1]], 1)); 
-console.log(isOmnipresent([[1,1],[1,3],[5,1],[6,1]], 6)); 
+const newGreeting = greeting.map(arr => arr.join(" "));
+console.log(newGreeting);
+//
 
-// ===== Exercise 5
-let table = document.body.firstElementChild;
-
-for (let i = 0; i < table.rows.length; i++) {
-  table.rows[i].cells[i].style.backgroundColor = "red";
-}
+const trapped = [[[[[[[[[[[[[[[[[[[[[[[[[[3]]]]]]]]]]]]]]]]]]]]]]]]]];
+const result = trapped.flat(Infinity);
+console.log(result);
