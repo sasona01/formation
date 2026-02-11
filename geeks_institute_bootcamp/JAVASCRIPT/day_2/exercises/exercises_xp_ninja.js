@@ -1,126 +1,77 @@
 // ===== Exercise 1
 
-let random = Math.floor(Math.random() * 100) + 1;
+const data = [
+  { name: 'Butters', age: 3, type: 'dog' },
+  { name: 'Cuty', age: 5, type: 'rabbit' },
+  { name: 'Lizzy', age: 6, type: 'dog' },
+  { name: 'Red', age: 1, type: 'cat' },
+  { name: 'Joey', age: 3, type: 'dog' },
+  { name: 'Rex', age: 10, type: 'dog' },
+];
 
-for (let i = 0; i <= random; i++) {
-  if (i % 2 === 0) {
-    console.log(i);
+let sum = 0;
+
+for (let i = 0; i < data.length; i++) {
+  if (data[i].type === "dog") {
+    sum += data[i].age * 7;
   }
 }
+
+console.log(sum);
+
+const total = data.reduce((acc, animal) => {
+  if (animal.type === "dog") {
+    return acc + animal.age * 7;
+  }
+  return acc;
+}, 0);
+
+console.log(total);
+
 
 // ===== Exercise 2
-function capitalize(str) {
-  let even = "";
-  let odd = "";
+const userEmail3 = ' cannotfillemailformcorrectly@gmail.com ';
 
-  for (let i = 0; i < str.length; i++) {
-    if (i % 2 === 0) {
-      even += str[i].toUpperCase();
-      odd += str[i];
-    } else {
-      even += str[i];
-      odd += str[i].toUpperCase();
-    }
-  }
-
-  return [even, odd];
-}
-
-console.log(capitalize("abcdef"));
+const cleanEmail = userEmail3.trim();
+console.log(cleanEmail);
 
 // ===== Exercise 3
-function isPalindrome(str) {
-  let reversed = str.split("").reverse().join("");
-  return str === reversed;
-}
 
-console.log(isPalindrome("madam")); 
-console.log(isPalindrome("hello"));
+const users = [{ firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
+             { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
+             { firstName: 'Jonathan', lastName: 'Baughn', role: 'Enterprise Instructor' },
+             { firstName: 'Michael', lastName: 'Herman', role: 'Lead Instructor' },
+             { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' },
+             { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
+             { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}];
+const newObject = {};
+
+users.forEach(user => {
+  const fullName = `${user.firstName} ${user.lastName}`;
+  newObject[fullName] = user.role;
+});
+
+console.log(newObject);
 
 // ===== Exercise 4
-function biggestNumberInArray(arrayNumber) {
-  if (arrayNumber.length === 0) {
-    return 0;
+const letters = ['x', 'y', 'z', 'z'];
+
+const result = {};
+
+for (let i = 0; i < letters.length; i++) {
+  const letter = letters[i];
+  if (result[letter]) {
+    result[letter]++;
+  } else {
+    result[letter] = 1;
   }
-
-  let max = null;
-
-  for (let item of arrayNumber) {
-    if (typeof item === "number") {
-      if (max === null || item > max) {
-        max = item;
-      }
-    }
-  }
-
-  return max === null ? 0 : max;
 }
 
-// Examples
-console.log(biggestNumberInArray([-1, 0, 3, 100, 99, 2, 99])); // 100
-console.log(biggestNumberInArray(["a", 3, 4, 2])); // 4
-console.log(biggestNumberInArray([])); // 0
+console.log(result);
 
-// ===== Exercise 5
-function uniqueArray(arr) {
-  let newArray = [];
+const result2 = letters.reduce((acc, letter) => {
+  acc[letter] = (acc[letter] || 0) + 1;
+  return acc;
+}, {});
 
-  for (let item of arr) {
-    if (!newArray.includes(item)) {
-      newArray.push(item);
-    }
-  }
-
-  return newArray;
-}
-
-console.log(uniqueArray([1,2,3,3,3,3,4,5]));
-// ===== Exercise 6
-function createCalendar(year, month) {
-  const table = document.createElement("table");
-  table.border = "1";
-
-  const days = ["MO", "TU", "WE", "TH", "FR", "SA", "SU"];
-
- 
-  const headerRow = document.createElement("tr");
-  for (let day of days) {
-    const th = document.createElement("th");
-    th.textContent = day;
-    headerRow.appendChild(th);
-  }
-  table.appendChild(headerRow);
-
-  
-  let date = new Date(year, month - 1, 1);
-
-  let startDay = (date.getDay() + 6) % 7;
-
-  let row = document.createElement("tr");
-
-  for (let i = 0; i < startDay; i++) {
-    row.appendChild(document.createElement("td"));
-  }
-
-  while (date.getMonth() === month - 1) {
-    const td = document.createElement("td");
-    td.textContent = date.getDate();
-    row.appendChild(td);
-he
-    if (row.children.length === 7) {
-      table.appendChild(row);
-      row = document.createElement("tr");
-    }
-
-    date.setDate(date.getDate() + 1);
-  }
-
-  if (row.children.length > 0) {
-    table.appendChild(row);
-  }
-
-  document.body.appendChild(table);
-}
-
-
-createCalendar(2012, 9);
+console.log(result2);
