@@ -1,121 +1,52 @@
-// ===== Exercise 1
+//Exercise 1
+//I am John Doe from Vancouver, Canada. Latitude(49.2827), Longitude(-123.1207)
 
-const h1 = document.querySelector("h1");
-console.log(h1);
+//Exercise 2
 
-const article = document.querySelector("article");
-article.lastElementChild.remove();
+function displayStudentInfo({first, last}) {
+  return `Your full name is ${first} ${last}`;
+}
 
-const h2 = document.querySelector("h2");
-h2.addEventListener("click", function () {
-  h2.style.backgroundColor = "red";
-});
+console.log(displayStudentInfo({first: 'Elie', last:'Schoppik'}));
 
-const h3 = document.querySelector("h3");
-h3.addEventListener("click", function () {
-  h3.style.display = "none";
-});
+//Exercise 3
 
-const button = document.createElement("button");
-button.textContent = "Bold Paragraphs";
-document.body.appendChild(button);
+const users = { user1: 18273, user2: 92833, user3: 90315 }
 
-button.addEventListener("click", function () {
-  const paragraphs = document.querySelectorAll("p");
-  paragraphs.forEach(p => {
-    p.style.fontWeight = "bold";
-  });
-});
+const usersArray = Object.entries(users);
+console.log(usersArray);
+const doubledUsers = Object.entries(users).map(
+  ([key, value]) => [key, value * 2]
+);
 
-h1.addEventListener("mouseover", function () {
-  h1.style.fontSize = Math.floor(Math.random() * 100) + "px";
-});
+console.log(doubledUsers);
 
-const secondP = document.querySelectorAll("p")[1];
-secondP.addEventListener("mouseover", function () {
-  secondP.style.transition = "opacity 1s";
-  secondP.style.opacity = "0";
-});
+//Exercise 4
 
-// ===== Exercise 2
-const form = document.querySelector("form");
-console.log(form);
+//object
 
-const fname = document.getElementById("fname");
-const lname = document.getElementById("lname");
-console.log(fname, lname);
+//Exercise 5
+// 2
 
-console.log(document.getElementsByName("firstname"));
-console.log(document.getElementsByName("lastname"));
+//Exercise 6
 
-form.addEventListener("submit", function (event) {
-  event.preventDefault(); 
-  if (fname.value === "" || lname.value === "") {
-    return;
+/* 1
+[2] === [2]   false
+{} === {}      false*/
+
+class Animal {
+  constructor(name, type, color) {
+    this.name = name;
+    this.type = type;
+    this.color = color;
   }
-
-  const ul = document.querySelector(".usersAnswer");
-  ul.innerHTML = "";
-
-  const li1 = document.createElement("li");
-  li1.textContent = fname.value;
-
-  const li2 = document.createElement("li");
-  li2.textContent = lname.value;
-
-  ul.appendChild(li1);
-  ul.appendChild(li2);
-});
-
-// ===== Exercise 3
-let allBoldItems;
-
-function getBoldItems() {
-  allBoldItems = document.querySelectorAll("strong");
 }
-
-function highlight() {
-  allBoldItems.forEach(item => {
-    item.style.color = "blue";
-  });
-}
-
-function returnItemsToDefault() {
-  allBoldItems.forEach(item => {
-    item.style.color = "black";
-  });
-}
-
-getBoldItems();
-
-const paragraph = document.querySelector("p");
-paragraph.addEventListener("mouseover", highlight);
-paragraph.addEventListener("mouseout", returnItemsToDefault);
-
-// ===== Exercise 4
-const form = document.getElementById("MyForm");
-
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const radiusInput = document.getElementById("radius");
-  const volumeInput = document.getElementById("volume");
-  const errorMsg = document.getElementById("error");
-
-  const radius = parseFloat(radiusInput.value);
-
-  if (isNaN(radius) || radius <= 0) {
-    errorMsg.textContent = "❌ Veuillez entrer un nombre valide";
-    volumeInput.value = "";
-    return;
+class Mammal extends Animal {
+  sound(animalSound) {
+    return `${animalSound} I'm a ${this.type}, named ${this.name} and I'm ${this.color}`;
   }
+}
+const farmerCow = new Mammal("Lily", "cow", "brown and white");
 
-  errorMsg.textContent = "";
+console.log(farmerCow.sound("Moooo"));
 
-  const volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
-  volumeInput.value = volume.toFixed(2);
-});
-
-
-
-// ===== Exercise ...
