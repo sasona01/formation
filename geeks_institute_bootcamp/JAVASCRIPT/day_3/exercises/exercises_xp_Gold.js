@@ -1,76 +1,35 @@
 // ===== Exercise 1
 
- const select = document.getElementById("genres");
+ function printFullName({ first, last }) {
+  return `Your full name is ${first} ${last}`;
+}
 
-console.log(select.value);
-
-const option = document.createElement("option");
-option.value = "classic";
-option.textContent = "Classic";
-option.selected = true;
-
-select.appendChild(option);
-
-console.log(select.value);
+console.log(printFullName({first: 'Elie', last:'Schoppik'}));
 
 // ===== Exercise 2
-const button = document.querySelector("input[type='button']");
-const select = document.getElementById("colorSelect");
-
-button.addEventListener("click", removecolor);
-
-function removecolor() {
-  select.remove(select.selectedIndex);
+function keysAndValues(obj) {
+  const keys = Object.keys(obj).sort();
+  const values = keys.map(key => obj[key]);
+  return [keys, values];
 }
+keysAndValues({ a: 1, b: 2, c: 3 })
 
 // ===== Exercise 3
-let shoppingList = [];
+class Counter {
+  constructor() {
+    this.count = 0;
+  }
 
-const root = document.getElementById("root");
-
-const form = document.createElement("form");
-
-const input = document.createElement("input");
-input.type = "text";
-
-const addButton = document.createElement("button");
-addButton.textContent = "AddItem";
-
-form.appendChild(input);
-form.appendChild(addButton);
-root.appendChild(form);
-
-const ul = document.createElement("ul");
-root.appendChild(ul);
-
-const clearButton = document.createElement("button");
-clearButton.textContent = "ClearAll";
-root.appendChild(clearButton);
-
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  addItem();
-});
-
-function addItem() {
-  if (input.value === "") return;
-
-  shoppingList.push(input.value);
-
-  const li = document.createElement("li");
-  li.textContent = input.value;
-  ul.appendChild(li);
-
-  input.value = "";
+  increment() {
+    this.count++;
+  }
 }
 
-clearButton.addEventListener("click", clearAll);
+const counterOne = new Counter();
+counterOne.increment();
+counterOne.increment();
 
-function clearAll() {
-  shoppingList = [];
-  ul.innerHTML = "";
-}
+const counterTwo = counterOne;
+counterTwo.increment();
 
-// ===== Exercise 4
-
-// ===== Exercise ...
+console.log(counterOne.count);
