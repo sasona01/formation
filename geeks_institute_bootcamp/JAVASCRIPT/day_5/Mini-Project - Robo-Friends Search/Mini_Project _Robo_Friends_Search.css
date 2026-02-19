@@ -1,0 +1,65 @@
+body {
+  background-color: #5e5ebd;
+  background-image: url("circuit-pattern.png");
+  background-repeat: repeat;
+  background-size: cover; /* adapte */
+}
+
+/* HEADER */
+header {
+  background: #6bd17f;
+  padding: 10px 0px;
+  width: 100%;
+  font-family: 'SEGA LOGO FONT', sans-serif;                                            
+}
+
+h1 {
+  
+  margin: 0;
+  font-size: 40px;
+}
+
+#searchBox {
+  margin-top: 10px;
+  width: 300px;
+  font-size: 16px;
+  border-radius: 10px
+}
+
+/* GRID */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  padding: 20px;
+  margin: auto;
+}
+
+/* CARD */
+.card {
+  background: #4dd0c8;
+  border-radius: 10px;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  border-radius: 50%;
+  background: #2c3e50;
+  padding: 10px;
+}
+
+.card h2 {
+  margin: 10px 0 5px;
+}
+
+.card p {
+  color: #333;
+}
