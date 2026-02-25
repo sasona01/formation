@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #0f172a;
+  color: white;
+}
+
+/* background image */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("circuit-pattern.png");
+  opacity: 0.05;
+  z-index: -1;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+.controls {
+  margin: 20px;
+}
+
+button {
+  padding: 8px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+/* GRID 3x3 */
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 70px);
+  gap: 8px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+/* SMALL BOX */
+.cell {
+  width: 70px;
+  height: 70px;
+  background: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cell:hover {
+  background: #334155;
+}
+
+#restart {
+  margin-top: 15px;
+}
