@@ -4,4 +4,4 @@ const files = fs.readdirSync('./');
 
 files.forEach(file => {
   console.log(file);
-});
+});node challenge.js
