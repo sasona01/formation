@@ -1,0 +1,23 @@
+{
+  "name": "geeks_institute_bootcamp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sasona01/formation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sasona01/formation/issues"
+  },
+  "homepage": "https://github.com/sasona01/formation#readme",
+  "dependencies": {
+    "mongoose": "^9.4.1"
+  }
+}

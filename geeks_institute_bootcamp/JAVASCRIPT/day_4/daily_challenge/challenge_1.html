@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form to JSON</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    input {
+      padding: 8px;
+      margin-right: 5px;
+    }
+
+    button {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <input type="text" id="name" placeholder="name">
+  <input type="text" id="lastname" placeholder="lastname">
+  <button id="sendBtn">Send</button>
+
+  <div id="output"></div>
+
+  <script>
+    const button = document.getElementById("sendBtn");
+
+    button.addEventListener("click", () => {
+      const name = document.getElementById("name").value;
+      const lastname = document.getElementById("lastname").value;
+
+      const data = {
+        name: name,
+        lastname: lastname
+      };
+
+      document.getElementById("output").textContent =
+        JSON.stringify(data);
+    });
+  </script>
+
+</body>
+</html>
